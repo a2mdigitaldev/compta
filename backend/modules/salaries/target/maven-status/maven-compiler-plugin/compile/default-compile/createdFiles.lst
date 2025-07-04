@@ -1,0 +1,4 @@
+com\comptamaroc\salaries\model\Employee$EmploymentStatus.class
+com\comptamaroc\salaries\model\Employee.class
+com\comptamaroc\salaries\service\PayrollCalculationService$PayrollResult.class
+com\comptamaroc\salaries\service\PayrollCalculationService.class

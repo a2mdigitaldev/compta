@@ -1,0 +1,4 @@
+com\comptamaroc\clients\model\Client.class
+com\comptamaroc\clients\controller\ClientController.class
+com\comptamaroc\clients\repository\ClientRepository.class
+com\comptamaroc\clients\service\ClientService.class

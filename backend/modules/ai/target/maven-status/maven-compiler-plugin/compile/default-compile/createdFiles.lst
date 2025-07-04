@@ -1,0 +1,7 @@
+com\comptamaroc\ai\service\SmartRecommendationService.class
+com\comptamaroc\ai\service\SmartRecommendationService$InventoryData.class
+com\comptamaroc\ai\service\SmartRecommendationService$InvoiceData.class
+com\comptamaroc\ai\service\SmartRecommendationService$RecommendationPriority.class
+com\comptamaroc\ai\service\SmartRecommendationService$Recommendation.class
+com\comptamaroc\ai\service\SmartRecommendationService$RecommendationType.class
+com\comptamaroc\ai\service\SmartRecommendationService$FinancialData.class

@@ -1,0 +1,14 @@
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\config\WebSecurityConfig.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\filter\JwtAuthenticationFilter.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\dto\AuthResponse.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\service\UserDetailsServiceImpl.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\config\CorsConfig.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\service\AuthService.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\service\JwtService.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\exception\GlobalExceptionHandler.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\controller\AuthController.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\dto\RegisterRequest.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\config\SwaggerConfig.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\Application.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\config\TestDataInitializer.java
+C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\src\main\java\com\comptamaroc\auth\dto\AuthRequest.java

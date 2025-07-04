@@ -1,0 +1,3 @@
+com\comptamaroc\products\model\Product.class
+com\comptamaroc\products\controller\ProductController.class
+com\comptamaroc\products\repository\ProductRepository.class

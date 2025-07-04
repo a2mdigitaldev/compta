@@ -1,0 +1,6 @@
+com\comptamaroc\suppliers\dto\SupplierRequest.class
+com\comptamaroc\suppliers\dto\SupplierResponse.class
+com\comptamaroc\suppliers\controller\SupplierController.class
+com\comptamaroc\suppliers\model\Supplier.class
+com\comptamaroc\suppliers\repository\SupplierRepository.class
+com\comptamaroc\suppliers\service\SupplierService.class

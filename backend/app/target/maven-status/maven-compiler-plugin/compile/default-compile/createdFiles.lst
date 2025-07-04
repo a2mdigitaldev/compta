@@ -1,0 +1,14 @@
+com\comptamaroc\auth\dto\AuthRequest.class
+com\comptamaroc\auth\filter\JwtAuthenticationFilter.class
+com\comptamaroc\config\TestDataInitializer.class
+com\comptamaroc\auth\service\JwtService.class
+com\comptamaroc\auth\service\AuthService.class
+com\comptamaroc\config\SwaggerConfig.class
+com\comptamaroc\config\WebSecurityConfig.class
+com\comptamaroc\auth\dto\RegisterRequest.class
+com\comptamaroc\Application.class
+com\comptamaroc\auth\service\UserDetailsServiceImpl.class
+com\comptamaroc\config\CorsConfig.class
+com\comptamaroc\auth\controller\AuthController.class
+com\comptamaroc\auth\dto\AuthResponse.class
+com\comptamaroc\exception\GlobalExceptionHandler.class

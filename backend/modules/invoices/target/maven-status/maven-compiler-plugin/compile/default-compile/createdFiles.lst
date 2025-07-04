@@ -1,0 +1,5 @@
+com\comptamaroc\invoices\dto\InvoiceDTO.class
+com\comptamaroc\invoices\dto\InvoiceItemDTO.class
+com\comptamaroc\invoices\model\InvoiceItem.class
+com\comptamaroc\invoices\model\Invoice.class
+com\comptamaroc\invoices\model\Invoice$InvoiceStatus.class

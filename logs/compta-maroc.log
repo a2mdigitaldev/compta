@@ -1,0 +1,430 @@
+2025-07-04 19:21:02 [main] INFO  com.comptamaroc.Application - Starting Application v0.1.0-SNAPSHOT using Java 24.0.1 with PID 22504 (C:\Users\KVIP\Documents\compta2\accounting-app\backend\app\target\app-0.1.0-SNAPSHOT.jar started by KVIP in C:\Users\KVIP\Documents\compta2\accounting-app)
+2025-07-04 19:21:02 [main] DEBUG com.comptamaroc.Application - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-07-04 19:21:02 [main] INFO  com.comptamaroc.Application - The following 1 profile is active: "test"
+2025-07-04 19:21:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 19:21:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 414 ms. Found 5 JPA repository interfaces.
+2025-07-04 19:21:10 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-07-04 19:21:10 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-04 19:21:10 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-07-04 19:21:11 [main] INFO  o.a.c.c.C.[.[localhost].[/api/v1] - Initializing Spring embedded WebApplicationContext
+2025-07-04 19:21:11 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8434 ms
+2025-07-04 19:21:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 19:21:12 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-07-04 19:21:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 19:21:12 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-07-04 19:21:12 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 19:21:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-07-04 19:21:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 19:21:14 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 19:21:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-04 19:21:20 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.chart_of_accounts cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.clients cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.employees cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.invoice_items cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.invoices cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.journal_entries cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.journal_entry_lines cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.products cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.roles cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.suppliers cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.users cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists public.vat_rates cascade 
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.chart_of_accounts (
+        is_active boolean not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        pcmn_code varchar(10),
+        id uuid not null,
+        account_code varchar(20) not null unique,
+        parent_account_code varchar(20),
+        account_name varchar(100) not null,
+        account_category varchar(255) not null check (account_category in ('CURRENT_ASSETS','FIXED_ASSETS','CASH_AND_EQUIVALENTS','CURRENT_LIABILITIES','LONG_TERM_LIABILITIES','CAPITAL','RESERVES','RETAINED_EARNINGS','OPERATING_REVENUE','FINANCIAL_REVENUE','EXCEPTIONAL_REVENUE','OPERATING_EXPENSES','FINANCIAL_EXPENSES','EXCEPTIONAL_EXPENSES','TAX_EXPENSES')),
+        account_type varchar(255) not null check (account_type in ('ASSET','LIABILITY','EQUITY','REVENUE','EXPENSE')),
+        description clob,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.clients (
+        country VARCHAR(2) DEFAULT 'MA',
+        is_active BOOLEAN DEFAULT TRUE,
+        postal_code varchar(5),
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        tax_id varchar(15) unique,
+        id uuid not null,
+        phone varchar(20),
+        city varchar(50),
+        contact_person varchar(100) not null,
+        email varchar(100) not null unique,
+        name varchar(100) not null,
+        address varchar(255),
+        notes TEXT,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.employees (
+        base_salary numeric(15,2) not null,
+        hire_date date not null,
+        is_active boolean not null,
+        termination_date date,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        bank_account varchar(20),
+        cin varchar(20),
+        cnss_number varchar(20),
+        employee_number varchar(20) not null unique,
+        phone varchar(20),
+        department varchar(50),
+        first_name varchar(50) not null,
+        last_name varchar(50) not null,
+        position varchar(50),
+        email varchar(100),
+        address varchar(200),
+        employment_status varchar(255) not null check (employment_status in ('FULL_TIME','PART_TIME','CONTRACT','INTERN','CONSULTANT','TERMINATED')),
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.invoice_items (
+        line_total numeric(12,2) not null,
+        quantity numeric(10,2) not null,
+        unit_price numeric(12,2) not null,
+        vat_amount numeric(12,2) not null,
+        vat_rate numeric(5,2) not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        invoice_id uuid not null,
+        product_id uuid,
+        unit varchar(20),
+        description varchar(255) not null,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.invoices (
+        due_date date,
+        invoice_date date not null,
+        paid_amount DECIMAL(12,2) DEFAULT 0.00,
+        subtotal numeric(12,2) not null,
+        total_amount numeric(12,2) not null,
+        vat_amount numeric(12,2) not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        client_id uuid not null,
+        id uuid not null,
+        invoice_number varchar(50) not null unique,
+        notes TEXT,
+        status VARCHAR(20) DEFAULT 'DRAFT' not null check (status in ('DRAFT','SENT','VIEWED','PAID','CANCELLED','OVERDUE')),
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.journal_entries (
+        entry_date date not null,
+        posted_date date,
+        total_amount numeric(15,2) not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        entry_number varchar(50) not null unique,
+        reference varchar(50),
+        created_by varchar(100),
+        posted_by varchar(100),
+        description varchar(200),
+        entry_type varchar(255) not null check (entry_type in ('SALES','PURCHASES','PAYMENTS','RECEIPTS','ADJUSTMENTS','OPENING_BALANCE','CLOSING','TRANSFER','DEPRECIATION','PROVISION')),
+        status varchar(255) not null check (status in ('DRAFT','POSTED','CANCELLED')),
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.journal_entry_lines (
+        credit_amount numeric(15,2),
+        debit_amount numeric(15,2),
+        line_order integer not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        journal_entry_id uuid not null,
+        account_code varchar(20) not null,
+        reference varchar(50),
+        line_description varchar(200),
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.products (
+        cost numeric(12,2) not null,
+        is_active BOOLEAN DEFAULT TRUE,
+        is_service BOOLEAN DEFAULT FALSE,
+        min_stock_level INTEGER DEFAULT 0,
+        price numeric(12,2) not null,
+        stock_quantity integer not null,
+        vat_rate DECIMAL(5,2) DEFAULT 20.00,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        unit varchar(20) not null,
+        brand varchar(50),
+        category varchar(50),
+        sku varchar(50) not null unique,
+        barcode varchar(100) unique,
+        name varchar(100) not null,
+        description varchar(500),
+        notes TEXT,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.roles (
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        description varchar(255),
+        name varchar(255) not null unique,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.suppliers (
+        is_active boolean not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        phone varchar(20),
+        postal_code varchar(20),
+        tax_id varchar(20),
+        city varchar(50),
+        contact_person varchar(50),
+        country varchar(50),
+        company_name varchar(100) not null,
+        email varchar(100),
+        address varchar(200),
+        notes clob,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.users (
+        is_active boolean not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        role_id uuid not null,
+        email varchar(255) not null unique,
+        first_name varchar(255) not null,
+        last_name varchar(255) not null,
+        password varchar(255) not null,
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    create table public.vat_rates (
+        effective_date date not null,
+        end_date date,
+        is_active boolean not null,
+        rate_percentage numeric(5,2) not null,
+        created_at timestamp(6) not null,
+        deleted_at timestamp(6),
+        updated_at timestamp(6),
+        version bigint,
+        id uuid not null,
+        tax_code varchar(20),
+        rate_name varchar(50) not null,
+        description varchar(200),
+        vat_type varchar(255) not null check (vat_type in ('STANDARD','REDUCED_1','REDUCED_2','REDUCED_3','SUPER_REDUCED','EXEMPT','ZERO_RATE')),
+        primary key (id)
+    )
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists public.invoice_items 
+       add constraint FK46ae0lhu1oqs7cv91fn6y9n7w 
+       foreign key (invoice_id) 
+       references public.invoices
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists public.invoice_items 
+       add constraint FKs3tu9gmkgshq8oeq5n0rinxeu 
+       foreign key (product_id) 
+       references public.products
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists public.invoices 
+       add constraint FK9ioqm804urbgy986pdtwqtl0x 
+       foreign key (client_id) 
+       references public.clients
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists public.journal_entry_lines 
+       add constraint FKfsnmviaccb30x09mxoekhwknt 
+       foreign key (account_code) 
+       references public.chart_of_accounts (account_code)
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists public.journal_entry_lines 
+       add constraint FKl0yqkqwya5s96hmxy9hq2c8yi 
+       foreign key (journal_entry_id) 
+       references public.journal_entries
+2025-07-04 19:21:20 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists public.users 
+       add constraint FKp56c1712k691lhsyewcssf40f 
+       foreign key (role_id) 
+       references public.roles
+2025-07-04 19:21:20 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 19:21:22 [main] DEBUG c.c.a.filter.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-07-04 19:21:24 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-04 19:21:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-04 19:21:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@51509c7d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dd72304, org.springframework.security.web.context.SecurityContextHolderFilter@180b7842, org.springframework.security.web.header.HeaderWriterFilter@3f14897, org.springframework.web.filter.CorsFilter@58e21dde, org.springframework.security.web.authentication.logout.LogoutFilter@281c1f99, com.comptamaroc.auth.filter.JwtAuthenticationFilter@5ac8916d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66910ced, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@637a43b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b4ce8f3, org.springframework.security.web.session.SessionManagementFilter@36823faf, org.springframework.security.web.access.ExceptionTranslationFilter@c2b2b92, org.springframework.security.web.access.intercept.AuthorizationFilter@254b360d]
+2025-07-04 19:21:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api/v1'
+2025-07-04 19:21:31 [main] INFO  com.comptamaroc.Application - Started Application in 31.115 seconds (process running for 32.974)
+2025-07-04 19:21:31 [main] DEBUG org.hibernate.SQL - 
+    /* select
+        count(*) 
+    from
+        Role x */ select
+            count(*) 
+        from
+            public.roles r1_0
+2025-07-04 19:21:32 [main] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.comptamaroc.core.entity.Role */insert 
+    into
+        public.roles (created_at, deleted_at, description, name, updated_at, version, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-07-04 19:21:32 [main] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.comptamaroc.core.entity.Role */insert 
+    into
+        public.roles (created_at, deleted_at, description, name, updated_at, version, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-07-04 19:21:32 [main] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.comptamaroc.core.entity.Role */insert 
+    into
+        public.roles (created_at, deleted_at, description, name, updated_at, version, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-07-04 19:21:32 [main] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.comptamaroc.core.entity.Role */insert 
+    into
+        public.roles (created_at, deleted_at, description, name, updated_at, version, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-07-04 19:21:32 [main] DEBUG org.hibernate.SQL - 
+    /* select
+        count(*) 
+    from
+        User x */ select
+            count(*) 
+        from
+            public.users u1_0
+2025-07-04 19:21:32 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.deleted_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at,
+        r1_0.version 
+    from
+        public.roles r1_0 
+    where
+        r1_0.name=?
+2025-07-04 19:21:33 [main] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.comptamaroc.core.entity.User */insert 
+    into
+        public.users (created_at, deleted_at, email, first_name, is_active, last_name, password, role_id, updated_at, version, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-04 19:21:33 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.deleted_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at,
+        r1_0.version 
+    from
+        public.roles r1_0 
+    where
+        r1_0.name=?
+2025-07-04 19:21:33 [main] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.comptamaroc.core.entity.User */insert 
+    into
+        public.users (created_at, deleted_at, email, first_name, is_active, last_name, password, role_id, updated_at, version, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-04 19:25:29 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api/v1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 19:25:29 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-04 19:25:29 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-04 19:25:29 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /auth/login
+2025-07-04 19:25:29 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2025-07-04 19:25:29 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-07-04 19:25:29 [http-nio-8080-exec-3] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/v1/auth/login' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-07-04 19:25:29 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-07-04 19:25:29 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2025-07-04 19:25:29 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-07-04 19:25:29 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-07-04 19:25:45 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2025-07-04 19:25:45 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-07-04 19:25:45 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-07-04 19:25:45 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2025-07-04 19:25:46 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-07-04 19:25:46 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.chart_of_accounts cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.clients cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.employees cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.invoice_items cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.invoices cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.journal_entries cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.journal_entry_lines cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.products cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.roles cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.suppliers cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.users cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists public.vat_rates cascade 
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 19:39:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

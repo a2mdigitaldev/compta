@@ -1,0 +1,7 @@
+com\comptamaroc\accounting\model\ChartOfAccounts$AccountType.class
+com\comptamaroc\accounting\model\JournalEntry$EntryType.class
+com\comptamaroc\accounting\model\JournalEntry$EntryStatus.class
+com\comptamaroc\accounting\model\JournalEntry.class
+com\comptamaroc\accounting\model\ChartOfAccounts.class
+com\comptamaroc\accounting\model\JournalEntryLine.class
+com\comptamaroc\accounting\model\ChartOfAccounts$AccountCategory.class

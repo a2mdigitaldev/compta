@@ -1,0 +1,3 @@
+com\comptamaroc\settings\service\SettingsService.class
+com\comptamaroc\settings\service\SettingsService$UserPreferences.class
+com\comptamaroc\settings\service\SettingsService$CompanySettings.class

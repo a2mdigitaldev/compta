@@ -1,0 +1,6 @@
+com\comptamaroc\core\model\BaseEntity.class
+com\comptamaroc\core\repository\UserRepository.class
+com\comptamaroc\core\entity\Role.class
+com\comptamaroc\core\repository\RoleRepository.class
+com\comptamaroc\core\dto\ApiResponse.class
+com\comptamaroc\core\entity\User.class

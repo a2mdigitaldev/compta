@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.comptamaroc</groupId>
+    <artifactId>compta-maroc</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>Moroccan Accounting Platform</name>
+    <description>Enterprise accounting solution for Moroccan businesses</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <spring-boot.version>3.2.0</spring-boot.version>
+        <jwt.version>0.11.5</jwt.version>
+        <springdoc.version>2.2.0</springdoc.version>
+    </properties>
+
+    <modules>
+        <module>backend/core</module>
+        <module>backend/app</module>
+        <module>backend/modules/dashboard</module>
+        <module>backend/modules/clients</module>
+        <module>backend/modules/suppliers</module>
+        <module>backend/modules/products</module>
+        <module>backend/modules/invoices</module>
+        <module>backend/modules/accounting</module>
+        <module>backend/modules/tva</module>
+        <module>backend/modules/salaries</module>
+        <module>backend/modules/reports</module>
+        <module>backend/modules/ai</module>
+        <module>backend/modules/settings</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Internal modules -->
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>dashboard</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>clients</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>suppliers</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>products</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>invoices</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>accounting</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>tva</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>salaries</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>reports</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>ai</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.comptamaroc</groupId>
+                <artifactId>settings</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
+            <!-- External dependencies -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jwt.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jwt.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

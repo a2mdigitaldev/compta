@@ -1,0 +1,5 @@
+com\comptamaroc\reports\service\FinancialReportService.class
+com\comptamaroc\reports\service\FinancialReportService$VatReport.class
+com\comptamaroc\reports\service\FinancialReportService$CashFlowReport.class
+com\comptamaroc\reports\service\FinancialReportService$BalanceSheetReport.class
+com\comptamaroc\reports\service\FinancialReportService$ProfitLossReport.class

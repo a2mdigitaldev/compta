@@ -1,0 +1,7 @@
+com\comptamaroc\tva\model\VatRate$VatType.class
+com\comptamaroc\tva\service\VatCalculationService$QuarterlyVatReturn.class
+com\comptamaroc\tva\controller\VatController.class
+com\comptamaroc\tva\service\VatCalculationService$VatCalculationResult.class
+com\comptamaroc\tva\model\VatRate.class
+com\comptamaroc\tva\service\VatCalculationService$1.class
+com\comptamaroc\tva\service\VatCalculationService.class
